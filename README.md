@@ -6,7 +6,7 @@ Example app using [TCA](https://github.com/pointfreeco/swift-composable-architec
 
 1. Git clone the repository: `git clone git@github.com:mgacy/TuistTCAExample.git`.
 2. Install Tuist: `bash <(curl -Ls https://install.tuist.io)`.
-3. Run ``.
+3. Run `tuist generate`.
 
 ## Edit the Project
 
