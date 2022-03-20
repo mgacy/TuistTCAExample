@@ -37,14 +37,14 @@ class TwoFactorSwiftUITests: XCTestCase {
         }
 
         let store = TestStore(
-            initialState: TwoFactorState(token: "deadbeefdeadbeef"),
-            reducer: twoFactorReducer,
-            environment: TwoFactorEnvironment(
+            initialState: TwoFactorDomain.State(token: "deadbeefdeadbeef"),
+            reducer: TwoFactorDomain.reducer,
+            environment: TwoFactorDomain.Environment(
                 authenticationClient: authenticationClient,
                 mainQueue: .immediate
             )
         )
-            .scope(state: TwoFactorView.ViewState.init, action: TwoFactorAction.init)
+            .scope(state: TwoFactorView.ViewState.init, action: TwoFactorDomain.Action.init)
 
         store.environment.authenticationClient.twoFactor = { _ in
             Effect(value: .init(token: "deadbeefdeadbeef", twoFactorRequired: false))
@@ -86,7 +86,7 @@ class TwoFactorSwiftUITests: XCTestCase {
                 mainQueue: .immediate
             )
         )
-            .scope(state: TwoFactorView.ViewState.init, action: TwoFactorAction.init)
+            .scope(state: TwoFactorView.ViewState.init, action: TwoFactorDomain.Action.init)
 
         store.send(.codeChanged("1234")) {
             $0.code = "1234"

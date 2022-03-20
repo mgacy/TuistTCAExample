@@ -97,7 +97,7 @@ class GameDomainTests: XCTestCase {
             $0.currentPlayer = .o
         }
         self.store.send(.playAgainButtonTapped) {
-            $0 = GameState(oPlayerName: "Blob Jr.", xPlayerName: "Blob Sr.")
+            $0 = GameDomain.State(oPlayerName: "Blob Jr.", xPlayerName: "Blob Sr.")
         }
     }
 }

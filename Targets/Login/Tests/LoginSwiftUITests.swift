@@ -44,7 +44,7 @@ class LoginSwiftUITests: XCTestCase {
                 mainQueue: .immediate
             )
         )
-            .scope(state: LoginView.ViewState.init, action: LoginAction.init)
+            .scope(state: LoginView.ViewState.init, action: LoginDomain.Action.init)
         
         store.send(.emailChanged("blob@pointfree.co")) {
             $0.email = "blob@pointfree.co"
@@ -79,7 +79,7 @@ class LoginSwiftUITests: XCTestCase {
                 mainQueue: .immediate
             )
         )
-            .scope(state: LoginView.ViewState.init, action: LoginAction.init)
+            .scope(state: LoginView.ViewState.init, action: LoginDomain.Action.init)
         
         store.send(.emailChanged("2fa@pointfree.co")) {
             $0.email = "2fa@pointfree.co"
@@ -116,7 +116,7 @@ class LoginSwiftUITests: XCTestCase {
                 mainQueue: .immediate
             )
         )
-            .scope(state: LoginView.ViewState.init, action: LoginAction.init)
+            .scope(state: LoginView.ViewState.init, action: LoginDomain.Action.init)
         
         store.send(.emailChanged("blob")) {
             $0.email = "blob"

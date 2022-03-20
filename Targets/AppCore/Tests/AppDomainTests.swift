@@ -91,7 +91,7 @@ class AppDomainTests: XCTestCase {
         )
 
         store.send(.login(.emailChanged("blob@pointfree.co"))) {
-            try (/AppState.login).modify(&$0) {
+            try (/AppDomain.State.login).modify(&$0) {
                 $0.email = "blob@pointfree.co"
             }
         }

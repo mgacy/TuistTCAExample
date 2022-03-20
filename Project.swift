@@ -15,22 +15,27 @@ func targets() -> [Target] {
         externalDependencies: ["ComposableArchitecture"])
     targets += Target.makeFrameworkTargets(
         name: "AppCore",
-        dependencies: ["Common", "AuthenticationClient", "Login", "NewGame"])
+        dependencies: ["Common", "AuthenticationClient", "Login", "NewGame"],
+        testDependencies: ["Common"])
     targets += Target.makeFrameworkTargets(
         name: "AuthenticationClient",
         dependencies: ["Common"])
     targets += Target.makeFrameworkTargets(
         name: "Game",
-        dependencies:  ["Common"])
+        dependencies: ["Common"],
+        testDependencies: ["Common"])
     targets += Target.makeFrameworkTargets(
         name: "Login",
-        dependencies: ["Common", "AuthenticationClient", "TwoFactor"])
+        dependencies: ["Common", "AuthenticationClient", "TwoFactor"],
+        testDependencies: ["Common"])
     targets += Target.makeFrameworkTargets(
         name: "NewGame",
-        dependencies: ["Common", "Game"])
+        dependencies: ["Common", "Game"],
+        testDependencies: ["Common"])
     targets += Target.makeFrameworkTargets(
         name: "TwoFactor",
-        dependencies: ["Common", "AuthenticationClient"])
+        dependencies: ["Common", "AuthenticationClient"],
+        testDependencies: ["Common"])
     return targets
 }
 

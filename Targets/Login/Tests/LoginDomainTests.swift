@@ -39,9 +39,9 @@ class LoginDomainTests: XCTestCase {
         }
 
         let store = TestStore(
-            initialState: LoginState(),
-            reducer: loginReducer,
-            environment: LoginEnvironment(
+            initialState: LoginDomain.State(),
+            reducer: LoginDomain.reducer,
+            environment: LoginDomain.Environment(
                 authenticationClient: authenticationClient,
                 mainQueue: .immediate
             )
@@ -61,7 +61,7 @@ class LoginDomainTests: XCTestCase {
             .loginResponse(.success(.init(token: "deadbeefdeadbeef", twoFactorRequired: true)))
         ) {
             $0.isLoginRequestInFlight = false
-            $0.twoFactor = TwoFactorState(token: "deadbeefdeadbeef")
+            $0.twoFactor = TwoFactorDomain.State(token: "deadbeefdeadbeef")
         }
         store.send(.twoFactor(.codeChanged("1234"))) {
             $0.twoFactor?.code = "1234"
@@ -90,9 +90,9 @@ class LoginDomainTests: XCTestCase {
         let scheduler = DispatchQueue.test
 
         let store = TestStore(
-            initialState: LoginState(),
-            reducer: loginReducer,
-            environment: LoginEnvironment(
+            initialState: LoginDomain.State(),
+            reducer: LoginDomain.reducer,
+            environment: LoginDomain.Environment(
                 authenticationClient: authenticationClient,
                 mainQueue: scheduler.eraseToAnyScheduler()
             )
@@ -113,7 +113,7 @@ class LoginDomainTests: XCTestCase {
             .loginResponse(.success(.init(token: "deadbeefdeadbeef", twoFactorRequired: true)))
         ) {
             $0.isLoginRequestInFlight = false
-            $0.twoFactor = TwoFactorState(token: "deadbeefdeadbeef")
+            $0.twoFactor = TwoFactorDomain.State(token: "deadbeefdeadbeef")
         }
         store.send(.twoFactor(.codeChanged("1234"))) {
             $0.twoFactor?.code = "1234"
