@@ -2,6 +2,12 @@
 
 Example app using [TCA](https://github.com/pointfreeco/swift-composable-architecture) with [Tuist](https://github.com/tuist/tuist).
 
+Modules:
+
+<p align="center">
+    <img src="graph.png" width="800” max-width="100%" alt="Dependency Graph" />
+</p>
+
 ## Getting Started
 
 1. Git clone the repository: `git clone git@github.com:mgacy/TuistTCAExample.git`.
