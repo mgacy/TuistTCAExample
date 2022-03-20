@@ -70,6 +70,13 @@ Carthage/Build/
 Dependencies/
 .accio/
 
+# Tuist
+## Tuist derived files
+graph.dot
+Derived/
+## Tuist managed dependencies
+Tuist/Dependencies
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo.
@@ -88,3 +95,7 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+/Package.resolved
+/*.xcodeproj
+/*.xcworkspace

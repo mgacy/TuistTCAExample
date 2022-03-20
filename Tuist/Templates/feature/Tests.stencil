@@ -1,0 +1,25 @@
+//
+//  {{ name }}DomainTests.swift
+//
+//  Created by {{ author }} on {{ date }}.
+//  Copyright © {{ year }} {{ company }}. All rights reserved.
+//
+
+import Foundation
+import XCTest
+
+@testable import {{ name }}Domain
+
+final class {{ name }}DomainTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func test_example() {
+        // Add your test here
+    }
+}

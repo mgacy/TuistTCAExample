@@ -1,0 +1,32 @@
+//
+//  {{ name }}View.swift
+//
+//  Created by {{ author }} on {{ date }}.
+//  Copyright © {{ year }} {{ company }}. All rights reserved.
+//
+
+import ComposableArchitecture
+import SwiftUI
+
+public struct {{ name }}View: View {
+    let store: Store<{{ name }}Domain.State, {{ name }}Domain.Action>
+
+    public var body: some View {
+        WithViewStore(store) viewStore in 
+            Text("{{ name }}")
+        }
+    }
+}
+
+struct {{ name }}_Previews: PreviewProvider {
+    static var previews: some View {
+        {{ name }}View(
+            store: Store(
+                initialState: {{ name }}Domain.State(),
+                reducer: {{ name }}Domain.reducer
+                environment: {{ name }}Domain.Environment.mock  
+                )
+            )
+        )
+    }
+}
